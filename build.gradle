@@ -16,26 +16,20 @@ neoForge {
 }
 
 repositories {
-    maven { url = 'https://maven.saps.dev/minecraft' }        // KubeJS
-    maven { url = 'https://jitpack.io' }                      // Towny (repo.townyadvanced.com is unreachable from CI)
-    maven { url = 'https://repo.papermc.io/repository/maven-public/' }              // Bukkit (via Paper)
+    maven { url = 'https://maven.saps.dev/minecraft' }                       // KubeJS
+    maven { url = 'https://jitpack.io' }                                      // Towny
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }       // Bukkit (via Paper)
 }
 
 dependencies {
     // KubeJS — compile-only (provided by Mohist at runtime)
-    compileOnly("dev.latvian.mods:kubejs-neoforge:${project.kubejs_version}") {
-        transitive = false
-    }
+    compileOnly "dev.latvian.mods:kubejs-neoforge:${project.kubejs_version}"
 
     // Towny via JitPack — compile-only (provided as a Bukkit plugin at runtime)
-    compileOnly('com.github.TownyAdvanced:Towny:0.100.4.0') {
-        transitive = false
-    }
+    compileOnly 'com.github.TownyAdvanced:Towny:0.100.4.0'
 
     // Bukkit API — compile-only (provided by Mohist at runtime)
-    compileOnly('io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT') {
-        transitive = false
-    }
+    compileOnly 'io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT'
 }
 
 tasks.withType(JavaCompile).configureEach {
