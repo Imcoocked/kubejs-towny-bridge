@@ -17,8 +17,8 @@ neoForge {
 
 repositories {
     maven { url = 'https://maven.saps.dev/minecraft' }        // KubeJS
-    maven { url = 'https://repo.townyadvanced.com/repository/releases' }  // Towny
-    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // Bukkit (Mohist compat)
+    maven { url = 'https://jitpack.io' }                      // Towny (repo.townyadvanced.com is unreachable from CI)
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // Bukkit
 }
 
 dependencies {
@@ -27,8 +27,8 @@ dependencies {
         transitive = false
     }
 
-    // Towny — compile-only (provided as a Bukkit plugin at runtime)
-    compileOnly('com.palmergames.bukkit.towny:towny:0.100.4.0') {
+    // Towny via JitPack — compile-only (provided as a Bukkit plugin at runtime)
+    compileOnly('com.github.TownyAdvanced:Towny:0.100.4.0') {
         transitive = false
     }
 
