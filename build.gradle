@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+version = project.mod_version
+group   = project.mod_group_id
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+    withSourcesJar()
+}
+
+neoForge {
+    version = project.neoforge_version
+}
+
+repositories {
+    maven { url = 'https://maven.saps.dev/minecraft' }        // KubeJS
+    maven { url = 'https://repo.townyadvanced.com/repository/releases' }  // Towny
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // Bukkit (Mohist compat)
+}
+
+dependencies {
+    // KubeJS — compile-only (provided by Mohist at runtime)
+    compileOnly("dev.latvian.mods:kubejs-neoforge:${project.kubejs_version}") {
+        transitive = false
+    }
+
+    // Towny — compile-only (provided as a Bukkit plugin at runtime)
+    compileOnly('com.palmergames.bukkit.towny:towny:0.100.4.0') {
+        transitive = false
+    }
+
+    // Bukkit API — compile-only (provided by Mohist at runtime)
+    compileOnly('org.bukkit:bukkit:1.21.1-R0.1-SNAPSHOT') {
+        transitive = false
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
