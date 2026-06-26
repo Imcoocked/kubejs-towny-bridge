@@ -18,7 +18,7 @@ neoForge {
 repositories {
     maven { url = 'https://maven.saps.dev/minecraft' }        // KubeJS
     maven { url = 'https://jitpack.io' }                      // Towny (repo.townyadvanced.com is unreachable from CI)
-    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // Bukkit
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }              // Bukkit (via Paper)
 }
 
 dependencies {
@@ -33,7 +33,7 @@ dependencies {
     }
 
     // Bukkit API — compile-only (provided by Mohist at runtime)
-    compileOnly('org.bukkit:bukkit:1.21.1-R0.1-SNAPSHOT') {
+    compileOnly('io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT') {
         transitive = false
     }
 }
