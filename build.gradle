@@ -16,7 +16,7 @@ neoForge {
 }
 
 repositories {
-    maven { url = 'https://maven.saps.dev/minecraft' }                       // KubeJS
+    maven { url = 'https://maven.latvian.dev/releases' }
     maven { url = 'https://jitpack.io' }                                      // Towny
     maven { url = 'https://repo.papermc.io/repository/maven-public/' }       // Bukkit (via Paper)
 }
